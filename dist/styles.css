@@ -1,0 +1,35 @@
+section {
+  clear: both;
+  border-bottom: 4px solid red;
+  height: 90px;
+}
+.box {
+  float: left;
+  width: 200px;
+}
+.row {
+  position: relative;
+  height: 30px;
+}
+label {
+  cursor: pointer;
+  position: absolute;
+}
+label:nth-child(3n + 2) {
+  left: 40px;
+}
+label:nth-child(3n + 3) {
+  left: 80px;
+}
+label:nth-child(n + 4) {
+  visibility: hidden;
+}
+#one:checked ~ #two {
+  visibility: visible;
+}
+#one:checked ~ #three {
+  visibility: hidden;
+}
+#one:checked #five:checked ~ #three {
+  visibility: visible;
+}
