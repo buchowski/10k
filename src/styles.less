@@ -101,6 +101,17 @@ input[type=checkbox].good:checked ~ input[name$="good"] {
 input[type=checkbox]:checked ~ .checkbox-wall {
 	display: block;
 }
+#win-msg {
+	visibility: hidden;
+}
+
+.ring-1 input[type=checkbox].good:checked ~ input[type=radio].good:checked ~ #win-msg {
+	visibility: visible;
+	background-color: white;
+	padding: 20px;
+	border-radius: 40px;
+	z-index: 3000;
+}
 
 input {
 	position: absolute;
@@ -130,6 +141,8 @@ section {
 	position: absolute;
 	border: 1px solid blue;
 }
-.marquee {
-	border: 1px solid black;
+.tree {
+	background-image: url('../tree.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
