@@ -1,35 +1,90 @@
-section {
-	clear: both;
-	border-bottom: 4px solid red;
-	height: 90px;
+@label-width: 20px;
+@label-height: 20px;
+@half-label-width: @label-width / 2;
+@half-label-height: @label-height / 2;
+@section-height: 640px;
+@section-width: 640px;
+
+@section-x-origin: @section-width / 2;
+@section-y-origin: @section-height / 2;
+@360deg: 360deg;
+
+.generate-positions(@ring-class, @radius, @n, @i: 1) when (@i <= @n) {
+	@deg: 360deg / @n * (@i - 1);
+	@x: round(@radius * sin(@deg) + @section-x-origin);
+	@y: round(@radius * cos(@deg) + @section-y-origin); 
+	// @x-offset: round(@x / @radius) * @half-label-width;
+	// @y-offset: round(@y / @radius) * @half-label-height;
+	@x-offset: 0px;
+	@y-offset: 0px;
+	.ring-@{ring-class} label:nth-child(@{i}) {
+		bottom: calc(~"@{y} - @{y-offset}");
+		left: calc(~"@{x} - @{x-offset}");
+	}
+	.generate-positions(@ring-class, @radius, @n, @i + 1);
 }
-.box {
-	float: left;
-	width: 200px;
+
+.generate-positions(1, 30px, 4);
+.generate-positions(2, 90px, 6);
+.generate-positions(3, 160px, 8);
+.generate-positions(4, 210px, 10);
+.generate-positions(5, 280px, 12);
+
+input {
+	visibility: hidden;
 }
-.row {
-	position: relative;
-	height: 30px;
-}
+
 label {
-	cursor: pointer;
+	position: absolute;
+	border: 1px solid black;
+	border-radius: @label-width;
+	padding: 6px;
+	width: @label-width;
+	height: @label-height;
+	text-align: center;
+}
+
+section {
+	border: 1px solid black;
+	position: relative;
+	height: @section-height;
+	width: @section-width;
+	margin: auto;
+}
+.ring {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	position: absolute;
 }
-label:nth-child(3n + 2) {
-	left: 40px;
-}
-label:nth-child(3n + 3) {
-	left: 80px;
-}
-label:nth-child(n + 4) {
-	visibility: hidden;
-}
-#one:checked ~ #two {
-	visibility: visible;
-}
-#one:checked ~ #three {
-	visibility: hidden;
-}
-#one:checked #five:checked ~ #three {
-	visibility: visible;
-}
+// .box {
+// 	float: left;
+// 	width: 200px;
+// }
+// .row {
+// 	position: relative;
+// 	height: 30px;
+// }
+// label {
+// 	cursor: pointer;
+// 	position: absolute;
+// }
+// label:nth-child(3n + 2) {
+// 	left: 40px;
+// }
+// label:nth-child(3n + 3) {
+// 	left: 80px;
+// }
+// label:nth-child(n + 4) {
+// 	visibility: hidden;
+// }
+// #one:checked ~ #two {
+// 	visibility: visible;
+// }
+// #one:checked ~ #three {
+// 	visibility: hidden;
+// }
+// #one:checked #five:checked ~ #three {
+// 	visibility: visible;
+// }

@@ -1,35 +1,186 @@
-section {
-  clear: both;
-  border-bottom: 4px solid red;
-  height: 90px;
+.ring-1 label:nth-child(1) {
+  bottom: calc(350px - 0px);
+  left: calc(320px - 0px);
 }
-.box {
-  float: left;
-  width: 200px;
+.ring-1 label:nth-child(2) {
+  bottom: calc(320px - 0px);
+  left: calc(350px - 0px);
 }
-.row {
-  position: relative;
-  height: 30px;
+.ring-1 label:nth-child(3) {
+  bottom: calc(290px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-1 label:nth-child(4) {
+  bottom: calc(320px - 0px);
+  left: calc(290px - 0px);
+}
+.ring-2 label:nth-child(1) {
+  bottom: calc(410px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-2 label:nth-child(2) {
+  bottom: calc(365px - 0px);
+  left: calc(398px - 0px);
+}
+.ring-2 label:nth-child(3) {
+  bottom: calc(275px - 0px);
+  left: calc(398px - 0px);
+}
+.ring-2 label:nth-child(4) {
+  bottom: calc(230px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-2 label:nth-child(5) {
+  bottom: calc(275px - 0px);
+  left: calc(242px - 0px);
+}
+.ring-2 label:nth-child(6) {
+  bottom: calc(365px - 0px);
+  left: calc(242px - 0px);
+}
+.ring-3 label:nth-child(1) {
+  bottom: calc(480px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-3 label:nth-child(2) {
+  bottom: calc(433px - 0px);
+  left: calc(433px - 0px);
+}
+.ring-3 label:nth-child(3) {
+  bottom: calc(320px - 0px);
+  left: calc(480px - 0px);
+}
+.ring-3 label:nth-child(4) {
+  bottom: calc(207px - 0px);
+  left: calc(433px - 0px);
+}
+.ring-3 label:nth-child(5) {
+  bottom: calc(160px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-3 label:nth-child(6) {
+  bottom: calc(207px - 0px);
+  left: calc(207px - 0px);
+}
+.ring-3 label:nth-child(7) {
+  bottom: calc(320px - 0px);
+  left: calc(160px - 0px);
+}
+.ring-3 label:nth-child(8) {
+  bottom: calc(433px - 0px);
+  left: calc(207px - 0px);
+}
+.ring-4 label:nth-child(1) {
+  bottom: calc(530px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-4 label:nth-child(2) {
+  bottom: calc(490px - 0px);
+  left: calc(443px - 0px);
+}
+.ring-4 label:nth-child(3) {
+  bottom: calc(385px - 0px);
+  left: calc(520px - 0px);
+}
+.ring-4 label:nth-child(4) {
+  bottom: calc(255px - 0px);
+  left: calc(520px - 0px);
+}
+.ring-4 label:nth-child(5) {
+  bottom: calc(150px - 0px);
+  left: calc(443px - 0px);
+}
+.ring-4 label:nth-child(6) {
+  bottom: calc(110px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-4 label:nth-child(7) {
+  bottom: calc(150px - 0px);
+  left: calc(197px - 0px);
+}
+.ring-4 label:nth-child(8) {
+  bottom: calc(255px - 0px);
+  left: calc(120px - 0px);
+}
+.ring-4 label:nth-child(9) {
+  bottom: calc(385px - 0px);
+  left: calc(120px - 0px);
+}
+.ring-4 label:nth-child(10) {
+  bottom: calc(490px - 0px);
+  left: calc(197px - 0px);
+}
+.ring-5 label:nth-child(1) {
+  bottom: calc(600px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-5 label:nth-child(2) {
+  bottom: calc(562px - 0px);
+  left: calc(460px - 0px);
+}
+.ring-5 label:nth-child(3) {
+  bottom: calc(460px - 0px);
+  left: calc(562px - 0px);
+}
+.ring-5 label:nth-child(4) {
+  bottom: calc(320px - 0px);
+  left: calc(600px - 0px);
+}
+.ring-5 label:nth-child(5) {
+  bottom: calc(180px - 0px);
+  left: calc(562px - 0px);
+}
+.ring-5 label:nth-child(6) {
+  bottom: calc(78px - 0px);
+  left: calc(460px - 0px);
+}
+.ring-5 label:nth-child(7) {
+  bottom: calc(40px - 0px);
+  left: calc(320px - 0px);
+}
+.ring-5 label:nth-child(8) {
+  bottom: calc(78px - 0px);
+  left: calc(180px - 0px);
+}
+.ring-5 label:nth-child(9) {
+  bottom: calc(180px - 0px);
+  left: calc(78px - 0px);
+}
+.ring-5 label:nth-child(10) {
+  bottom: calc(320px - 0px);
+  left: calc(40px - 0px);
+}
+.ring-5 label:nth-child(11) {
+  bottom: calc(460px - 0px);
+  left: calc(78px - 0px);
+}
+.ring-5 label:nth-child(12) {
+  bottom: calc(562px - 0px);
+  left: calc(180px - 0px);
+}
+input {
+  visibility: hidden;
 }
 label {
-  cursor: pointer;
   position: absolute;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 6px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
 }
-label:nth-child(3n + 2) {
-  left: 40px;
+section {
+  border: 1px solid black;
+  position: relative;
+  height: 640px;
+  width: 640px;
+  margin: auto;
 }
-label:nth-child(3n + 3) {
-  left: 80px;
-}
-label:nth-child(n + 4) {
-  visibility: hidden;
-}
-#one:checked ~ #two {
-  visibility: visible;
-}
-#one:checked ~ #three {
-  visibility: hidden;
-}
-#one:checked #five:checked ~ #three {
-  visibility: visible;
+.ring {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
 }
