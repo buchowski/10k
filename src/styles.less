@@ -9,17 +9,20 @@
 @section-y-origin: @section-height / 2;
 @360deg: 360deg;
 
-.generate-positions(@ring-class, @radius, @n, @i: 1) when (@i <= @n) {
-	@deg: 360deg / @n * (@i - 1);
+.generate-positions(@ring-class, @radius, @n, @i: 1) when (@i <= @n * 2) {
+	@deg: 360deg / @n * (mod(@i, @n) - 1);
 	@x: round(@radius * sin(@deg) + @radius);
 	@y: round(@radius * cos(@deg) + @radius); 
 	// @x-offset: round(@x / @radius) * @half-label-width;
 	// @y-offset: round(@y / @radius) * @half-label-height;
 	@x-offset: 0px;
 	@y-offset: 0px;
-	.ring-@{ring-class} label:nth-child(@{i}) {
+	.ring-@{ring-class} input:nth-child(@{i}) {
 		bottom: calc(~"@{y} - @{y-offset}");
 		left: calc(~"@{x} - @{x-offset}");
+		&:before {
+			content: '@{i}';
+		}
 	}
 	.generate-positions(@ring-class, @radius, @n, @i + 1);
 }
@@ -46,12 +49,38 @@
 .generate-ring-size(4, 210px);
 .generate-ring-size(5, 280px);
 
-
-input {
-	// visibility: hidden;
+.checkbox-wall {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: none;
+	background-color: white;
+}
+input[type=checkbox] {
+	// margin-left: -12px;
+	z-index: 0;
+}
+input[type=radio] {
+	z-index: 2;
+	display: none;
+}
+.checkbox-wall {
+	z-index: 1;
+}
+.radio-wall {
+	z-index: 0;
+}
+input[type=checkbox]:checked {
+	z-index: 3;
+}
+input[type=checkbox]:checked ~ input[type=radio] {
+	display: block;
+}
+input[type=checkbox]:checked ~ .checkbox-wall {
+	display: block;
 }
 
-label {
+input {
 	position: absolute;
 	border: 1px solid black;
 	border-radius: @label-width;
@@ -73,33 +102,6 @@ section {
 	position: absolute;
 	border: 1px solid blue;
 }
-// .box {
-// 	float: left;
-// 	width: 200px;
-// }
-// .row {
-// 	position: relative;
-// 	height: 30px;
-// }
-// label {
-// 	cursor: pointer;
-// 	position: absolute;
-// }
-// label:nth-child(3n + 2) {
-// 	left: 40px;
-// }
-// label:nth-child(3n + 3) {
-// 	left: 80px;
-// }
-// label:nth-child(n + 4) {
-// 	visibility: hidden;
-// }
-// #one:checked ~ #two {
-// 	visibility: visible;
-// }
-// #one:checked ~ #three {
-// 	visibility: hidden;
-// }
-// #one:checked #five:checked ~ #three {
-// 	visibility: visible;
-// }
+.ring-1, .ring-2, .ring-3, .ring-4 {
+	pointer-events: none;
+}
