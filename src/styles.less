@@ -11,8 +11,8 @@
 
 .generate-positions(@ring-class, @radius, @n, @i: 1) when (@i <= @n) {
 	@deg: 360deg / @n * (@i - 1);
-	@x: round(@radius * sin(@deg) + @section-x-origin);
-	@y: round(@radius * cos(@deg) + @section-y-origin); 
+	@x: round(@radius * sin(@deg) + @radius);
+	@y: round(@radius * cos(@deg) + @radius); 
 	// @x-offset: round(@x / @radius) * @half-label-width;
 	// @y-offset: round(@y / @radius) * @half-label-height;
 	@x-offset: 0px;
@@ -23,6 +23,16 @@
 	}
 	.generate-positions(@ring-class, @radius, @n, @i + 1);
 }
+.generate-ring-size(@i, @radius) {
+	.ring-@{i} {
+		z-index: 999 - @i;
+		border-radius: @radius;
+		top: @section-height / 2 - @radius - @half-label-height;
+		bottom: @section-height / 2 - @radius - @half-label-height;
+		left: @section-width / 2 - @radius - @half-label-width;
+		right: @section-width /2 - @radius - @half-label-width;
+	}
+}
 
 .generate-positions(1, 30px, 4);
 .generate-positions(2, 90px, 6);
@@ -30,8 +40,15 @@
 .generate-positions(4, 210px, 10);
 .generate-positions(5, 280px, 12);
 
+.generate-ring-size(1, 30px);
+.generate-ring-size(2, 90px);
+.generate-ring-size(3, 160px);
+.generate-ring-size(4, 210px);
+.generate-ring-size(5, 280px);
+
+
 input {
-	visibility: hidden;
+	// visibility: hidden;
 }
 
 label {
@@ -42,6 +59,7 @@ label {
 	width: @label-width;
 	height: @label-height;
 	text-align: center;
+	cursor: pointer;
 }
 
 section {
@@ -52,11 +70,8 @@ section {
 	margin: auto;
 }
 .ring {
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	position: absolute;
+	border: 1px solid blue;
 }
 // .box {
 // 	float: left;
